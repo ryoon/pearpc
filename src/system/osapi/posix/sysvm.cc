@@ -44,7 +44,7 @@ void *sys_alloc_read_write_execute(size_t size)
 {
 	void *p = mmap(0, size, PROT_READ | PROT_WRITE | PROT_EXEC, MAP_32BIT | MAP_ANON | MAP_PRIVATE, -1, 0);
 
-	return (p == (void *)-1) ? NULL : p;
+	return (p == MAP_FAILED) ? NULL : p;
 }
 
 void sys_free_read_write_execute(void *p)
@@ -67,13 +67,13 @@ void sys_mprotect(void *va, size_t size, int protection)
 void *sys_mmap_anon(size_t size)
 {
 	void *ret = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_ANON | MAP_SHARED, -1, 0);
-	return (ret == (void *)-1) ? NULL : ret;
+	return (ret == MAP_FAILED) ? NULL : ret;
 }
 
 void *sys_malloc32(size_t size)
 {
 	void *ret = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_ANON | MAP_SHARED | MAP_32BIT, -1, 0);
-	return (ret == (void *)-1) ? NULL : ret;
+	return (ret == MAP_FAILED) ? NULL : ret;
 }
 
 void sys_free32(void *p, size_t size)
@@ -145,7 +145,7 @@ bool sys_alloc_mapping_area(sys_mapping_area *area, size_t size)
 		return false;
 	}
 	a->mem = mmap(NULL, size, PROT_READ | PROT_WRITE, MAP_SHARED, a->fd, 0);
-	if (a->mem == (void*)-1) {
+	if (a->mem == MAP_FAILED) {
 		perror("mmap");
 		close(a->fd);
 		if (a->name) {
@@ -172,7 +172,7 @@ void *sys_map_area(sys_mapping_area area, size_t ofs, size_t size, int protectio
 {
 	posix_mapping_area *a = (posix_mapping_area *)area;
 	void *ret = mmap(hint, size, sys_prot_to_posix_prot[protection], MAP_SHARED, a->fd, ofs);
-	return (ret == (void *)-1) ? NULL : ret;
+	return (ret == MAP_FAILED) ? NULL : ret;
 }
 
 void sys_unmap_area(void *base, size_t size)
