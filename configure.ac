@@ -130,6 +130,14 @@ haiku*)
 	PPC_CFLAGS="$PPC_CFLAGS -Wno-multichar"
 	PPC_CXXFLAGS="$PPC_CXXFLAGS -Wno-multichar"
 ;;
+netbsd*)
+	OSAPI_DIR=posix
+	if test "x$enable_ui" = "xno"; then
+		enable_ui="x11"
+	fi
+	AC_MSG_RESULT([*** NetBSD, building native NetBSD version. we need pthread.])
+	PPC_LDFLAGS="$PPC_LDFLAGS -pthread"
+;;
 *) 
 	AC_MSG_WARN([configure: warning: $target_os: unknown target OS, assuming POSIX-compatible...])
 	OSAPI_DIR=posix
