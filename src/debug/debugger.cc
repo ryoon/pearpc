@@ -414,6 +414,8 @@ Function *Debugger::eval_scalarToFunction(eval_scalar &s)
 		case REG_SRR1:
 			return new UInt32PFunction(&gCPU.srr[1]);
 #endif
+		default:
+			break;
 		}
 		break;
 	case SCALAR_STR:
