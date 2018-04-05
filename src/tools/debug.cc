@@ -17,7 +17,7 @@ extern "C" void  NORETURN ht_assert_failed(const char *file, int line, const cha
 	exit(1);
 }
 
-void debugDumpMem(void *buf, int len)
+void debugDumpMem(void *buf, uint32 len)
 {
 	byte *p = (byte*)buf;
 	while (len) {
