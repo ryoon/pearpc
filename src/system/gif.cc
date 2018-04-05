@@ -103,10 +103,9 @@ bool Gif::loadFromByteStream(Stream &stream)
 	
 	stream.readx(buf, 6); // magic
 	if (buf[0] != 'G' || buf[1] != 'I' || buf[2] != 'F' || buf[3] != '8' || buf[5] != 'a') return false;
-	int version;
 	switch (buf[4]) {
-	case '7': version = 7; break;
-	case '9': version = 9; break;
+	case '7': break;
+	case '9': break;
 	default: return false;
 	}
 
