@@ -5,10 +5,10 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int canonicalize(char *buf, int bufsize, char *cwd, char *fn)
+int canonicalize(char *buf, size_t bufsize, char *cwd, char *fn)
 {
-	int cwdsize = strlen(cwd);
-	int fnsize = strlen(fn);
+	size_t cwdsize = strlen(cwd);
+	size_t fnsize = strlen(fn);
 	if (fn[0] == '/') {
 		if (fnsize +1 > bufsize) return ERANGE;
 		strcpy(buf, fn);
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 {
 	setuid(0);
 	const char *relfilename = "ifppc_down";
-	int relfilenamesize = strlen(relfilename);
+	size_t relfilenamesize = strlen(relfilename);
 	char cwdbuf[2048];
 	if (!getcwd(cwdbuf, sizeof cwdbuf)) {
 		printf("CWD name too long (>%d bytes). move to a higher level directory.\n", (int)sizeof cwdbuf);
