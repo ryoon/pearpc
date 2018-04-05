@@ -9,6 +9,9 @@ Please read the documentation online at
 	http://pearpc.sf.net
 
 For NetBSD users:
+jitc_x86_64 for NetBSD/amd64 gets segfault. Use generic instead on
+NetBSD/amd64.
+
 If your NetBSD enables PaX MPROTECT, please mark your 'ppc' binary
 as not ready for PaX MPROTECT. Run:
 
