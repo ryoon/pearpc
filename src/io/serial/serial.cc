@@ -147,6 +147,7 @@ static const char *a2n(int a)
 	} else {
 		static char bl[10];
 		sprintf(bl, "%08x", a);
+		return bl;
 	}
 }
 
