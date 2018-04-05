@@ -507,7 +507,7 @@ public:
  *	@param i index at which to set
  *	@param obj object to set
  */
-	virtual	void		forceSetByIdx(int idx, Object *obj) = 0;
+	virtual	void		forceSetByIdx(uint idx, Object *obj) = 0;
 /**
  *	Swap two element.
  *	Swap element at position <i>h</i> with element at position <i>i</i>.
@@ -564,7 +564,7 @@ public:
 	virtual	ObjHandle	insert(Object *obj);
 	virtual	Object *	remove(ObjHandle h);
 /* extends List */
-	virtual	void		forceSetByIdx(int idx, Object *obj);
+	virtual	void		forceSetByIdx(uint idx, Object *obj);
 	virtual	void		insertAt(ObjHandle h, Object *obj);
 	virtual	bool		moveTo(ObjHandle from, ObjHandle to);
 	virtual	bool		set(ObjHandle h, Object *obj);
@@ -639,7 +639,7 @@ public:
 	virtual	ObjHandle	insert(Object *obj);
 	virtual	Object *	remove(ObjHandle h);
 /* extends List */
-	virtual	void		forceSetByIdx(int idx, Object *obj);
+	virtual	void		forceSetByIdx(uint idx, Object *obj);
 	virtual	void		insertAt(ObjHandle h, Object *obj);
 	virtual	bool		moveTo(ObjHandle from, ObjHandle to);
 	virtual	bool		set(ObjHandle h, Object *obj);

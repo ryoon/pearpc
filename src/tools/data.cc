@@ -397,7 +397,7 @@ int Array::compareObjects(const Object *a, const Object *b) const
 	return autoCompare(a, b);
 }
 
-void Array::forceSetByIdx(int i, Object *obj)
+void Array::forceSetByIdx(uint i, Object *obj)
 {
 // FIXME: sanity check, better idea ?
 	if (i<0) ASSERT(0);
@@ -656,7 +656,7 @@ int LinkedList::compareObjects(const Object *a, const Object *b) const
 	return autoCompare(a, b);
 }
 
-void LinkedList::forceSetByIdx(int idx, Object *obj)
+void LinkedList::forceSetByIdx(uint idx, Object *obj)
 {
 	// FIXME:
 	throw NotImplementedException(HERE);
@@ -670,7 +670,7 @@ Object *LinkedList::get(ObjHandle h) const
 
 uint LinkedList::getObjIdx(ObjHandle g) const
 {
-	int i = 0;
+	uint i = 0;
 	ObjHandle h = findFirst();
 	Object *obj = get(g);
 	while (h != InvObjHandle) {
