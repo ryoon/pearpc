@@ -169,13 +169,13 @@ i?86*)
 		CPU_DIR="cpu_jitc_x86"
 	fi
 ;;
-x86_64*)
-	AC_MSG_RESULT([*** x86_64 target system])
-	ARCH_DIR=x86_64
-	if test -z "$CPU_DIR"; then
-		CPU_DIR="cpu_jitc_x86_64"
-	fi
-;;
+#x86_64*)
+#	AC_MSG_RESULT([*** x86_64 target system])
+#	ARCH_DIR=x86_64
+#	if test -z "$CPU_DIR"; then
+#		CPU_DIR="cpu_jitc_x86_64"
+#	fi
+#;;
 *)
 	ARCH_DIR=generic
 	if test -z "$CPU_DIR"; then
