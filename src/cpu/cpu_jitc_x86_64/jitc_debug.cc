@@ -123,7 +123,7 @@ void jitcDebugInit()
 //	gDebugLog = stdout;
 	gDebugLog = fopen("jitc.log", "w");
 	symbols = new AVLTree(true);
-#if 0	
+#if 0
 	for (int i=0; i<32; i++) {
 		String *s = new String();
 		s->assignFormat("r%d", i);
