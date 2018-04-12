@@ -307,7 +307,7 @@ static bool doTryBootHFSPlus(File *aDevice, uint aDeviceBlocksize, FileOfs start
 	dh.mDevice = aDevice;
 	dh.mStart = 0;
 	volume vol;
-	ht_printf("start: %qd\n", start);
+	ht_printf("HFS+ start: %qd\n", start);
 	if (volume_open(&vol, &dh, partEnt->mPartNum-1, HFSP_MODE_RDONLY) == 0) {
 		volume_close(&vol);
 		HFSPlusInstantiateBootFilePrivData *priv = (HFSPlusInstantiateBootFilePrivData*)
